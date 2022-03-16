@@ -1,0 +1,28 @@
+version: '2'
+networks:
+  azilen_network:
+    driver: bridge
+
+services:
+  azilen-notification-postgresql:
+    image: postgres:12.3
+    container_name: azilen-notification-postgresql
+    hostname: azilen-notification-postgresql
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: AzilenNotificationApp
+      POSTGRES_PASSWORD: ds32gXv2qRMK67rC
+      TZ: Asia/Kolkata
+    networks:
+      azilen_network:
+
+  azilen-notification-app-schema:
+    build: .
+    environment:
+      POSTGRES_USER: AzilenNotificationApp
+      PGPASSWORD: ds32gXv2qRMK67rC
+    networks:
+      azilen_network:
+
+

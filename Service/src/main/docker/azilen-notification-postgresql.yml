@@ -1,0 +1,20 @@
+version: '2'
+networks:
+  azilen_network:
+    driver: bridge
+services:
+  azilen-notification-app-schema:
+    image: azilen-notification-app-schema:1.0.0
+    container_name: azilen-notification-app-schema
+    environment:
+      POSTGRES_USER: AzilenNotificationApp
+      PGPASSWORD: ds32gXv2qRMK67rC
+    networks:
+      azilen_network:
+
+  azilen-notification-postgresql:
+    extends:
+      file: postgresql.yml
+      service: azilen-notification-postgresql
+    networks:
+      azilen_network:

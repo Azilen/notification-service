@@ -1,0 +1,29 @@
+{
+  "health": {
+    "title": "Health Checks",
+    "refresh.button": "Päivitä",
+    "stacktrace": "Stacktrace",
+    "details": {
+      "details": "Tiedot",
+      "properties": "Properties",
+      "name": "Nimi",
+      "value": "Arvo",
+      "error": "Virhe"
+    },
+    "indicator": {
+      "diskSpace": "Levytila",
+      "mail": "Sähköposti",
+      "ping": "Application",
+      "db": "Database"
+    },
+    "table": {
+      "service": "Palvelun nimi",
+      "status": "Tila"
+    },
+    "status": {
+      "UNKNOWN": "Tuntematon",
+      "UP": "Käynnissä",
+      "DOWN": "sammunut"
+    }
+  }
+}

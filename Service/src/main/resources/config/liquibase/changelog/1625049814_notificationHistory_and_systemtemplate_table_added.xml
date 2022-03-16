@@ -1,0 +1,60 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <changeSet id="1625049814-1" author="Nilam Vasava" >
+        <createTable tableName="az_notification_template">
+            <column name="id" type="bigint" >
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="content" type="varchar(1000)"></column>
+            <column name="event_type" type="varchar(100)"></column>
+            <column name="sub_event_type" type="varchar(100)"></column>
+            <column name="is_global" type="BOOLEAN"></column>
+            <column name="version" type="integer"></column>
+            <column name="deleted" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enabled" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </createTable>
+
+    </changeSet>
+    <changeSet id="1625049814-2" author="Nilam Vasava" >
+        <createTable tableName="az_notification_history">
+            <column name="id" type="bigint" >
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="notification_id" type="varchar(100)"></column>
+            <column name="event_type" type="varchar(100)"></column>
+            <column name="sub_event_type" type="varchar(100)"></column>
+            <column name="content" type="varchar(1000)"></column>
+            <column name="from_address" type="varchar(50)"></column>
+            <column name="to_address" type="varchar(50)"></column>
+            <column name="deleted" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enabled" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>
