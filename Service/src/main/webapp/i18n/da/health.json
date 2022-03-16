@@ -1,0 +1,29 @@
+{
+  "health": {
+    "title": "Sundhed",
+    "refresh.button": "Opdatér",
+    "stacktrace": "Stacktrace",
+    "details": {
+      "details": "Details",
+      "properties": "Properties",
+      "name": "Name",
+      "value": "Value",
+      "error": "Error"
+    },
+    "indicator": {
+      "diskSpace": "Diskplads",
+      "mail": "Email",
+      "ping": "Application",
+      "db": "Database"
+    },
+    "table": {
+      "service": "Tjenestenavn",
+      "status": "Status"
+    },
+    "status": {
+      "UNKNOWN": "UNKNOWN",
+      "UP": "OP",
+      "DOWN": "NED"
+    }
+  }
+}

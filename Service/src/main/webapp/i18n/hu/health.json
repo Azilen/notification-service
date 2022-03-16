@@ -1,0 +1,29 @@
+{
+  "health": {
+    "title": "Rendszer ellenőrzések",
+    "refresh.button": "Frissítés",
+    "stacktrace": "Stacktrace",
+    "details": {
+      "details": "Details",
+      "properties": "Properties",
+      "name": "Name",
+      "value": "Value",
+      "error": "Error"
+    },
+    "indicator": {
+      "diskSpace": "Szabad hely a diszken",
+      "mail": "Email",
+      "ping": "Application",
+      "db": "Adatbázis"
+    },
+    "table": {
+      "service": "Szervíz neve",
+      "status": "Státusz"
+    },
+    "status": {
+      "UNKNOWN": "UNKNOWN",
+      "UP": "MŰKÖDIK",
+      "DOWN": "NEM MŰKÖDIK"
+    }
+  }
+}

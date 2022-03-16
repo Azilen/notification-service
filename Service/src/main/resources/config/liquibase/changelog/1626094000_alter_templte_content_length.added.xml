@@ -1,0 +1,16 @@
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <changeSet id="1626094000-1" author="Nilam Vasava" >
+        <modifyDataType columnName="content"
+                         newDataType="varchar(10000)"
+                         tableName="az_notification_template"/>
+    </changeSet>
+    <changeSet id="1626094000-2" author="Nilam Vasava" >
+        <modifyDataType columnName="content"
+                        newDataType="varchar(10000)"
+                        tableName="az_notification_history"/>
+    </changeSet>
+</databaseChangeLog>

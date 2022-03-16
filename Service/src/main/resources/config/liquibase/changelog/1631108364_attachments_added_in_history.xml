@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+
+    <changeSet id="1631108364-1" author="Hushen Savani">
+        <createTable tableName="az_notification_attachment">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="file_name" type="VARCHAR(255)"/>
+            <column name="url" type="VARCHAR(1024)"/>
+            <column name="deleted" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enabled" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_by" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created_date" type="timestamp" defaultValueDate="${now}">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_modified_by" type="VARCHAR(50)"/>
+            <column name="last_modified_date" type="timestamp"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="1631108364-2" author="Hushen Savani">
+        <createTable tableName="az_notification_history_attachment">
+            <column name="notification_history_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="attachment_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addPrimaryKey columnNames="notification_history_id, attachment_id"
+                       constraintName="az_notification_history_attachment_pkey"
+                       tableName="az_notification_history_attachment"/>
+
+        <addForeignKeyConstraint baseColumnNames="notification_history_id"
+                                 baseTableName="az_notification_history_attachment"
+                                 constraintName="fk_az_notification_history_attachment_notification_history_id"
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="az_notification_history"/>
+
+        <addForeignKeyConstraint baseColumnNames="attachment_id" baseTableName="az_notification_history_attachment"
+                                 constraintName="fk_az_notification_history_attachment_attachment_id"
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="az_notification_attachment"/>
+
+        <createIndex tableName="az_notification_history_attachment"
+                     indexName="np_idx_az_notification_history_attachment_notification_history_id">
+            <column name="notification_history_id"/>
+        </createIndex>
+
+        <createIndex tableName="az_notification_history_attachment"
+                     indexName="np_idx_az_notification_history_attachment_attachment_id">
+            <column name="attachment_id"/>
+        </createIndex>
+    </changeSet>
+
+
+</databaseChangeLog>

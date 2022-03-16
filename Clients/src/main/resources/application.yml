@@ -1,0 +1,14 @@
+pinPointConfig:
+  awsAccessKey: NA
+  awsSecretAccessKey: NA
+  awsRegion: NA
+
+sqsConfig:
+  queuename: ${SQS_CONFIG_QUEUE_NAME:NA}
+  devUrl: ${SQS_CONFIG_DEV_URL:NA}
+  uatUrl: ${SQS_CONFIG_UAT_URL:NA}
+  prodUrl: ${SQS_CONFIG_PROD_URL:NA}
+
+  batchSize: 10
+
+

@@ -1,0 +1,31 @@
+version: '2'
+networks:
+  azilen_network:
+    driver: bridge
+services:
+  azilen-notification-api-service:
+    image: azilen-notification-api-service:1.0.0-SNAPSHOT
+    container_name: azilen-notification-api-service
+    ports:
+      - 38086:38086
+    environment:
+      - _JAVA_OPTIONS=-Xmx512m -Xms256m #-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=5005
+      - SPRING_PROFILES_ACTIVE=prod,swagger
+      - JHIPSTER_SLEEP=0 # gives time for the JHipster Registry to boot before the application
+      - DB_URL=jdbc:postgresql://azilen-notification-postgresql:5432/AzilenNotificationApp?currentSchema=notifications&ApplicationName=Notifications
+      - DB_USERNAME=AzilenNotificationApp
+      - DB_PASSWORD=ds32gXv2qRMK67rC
+      - PINPOINT_PROJECT_ID=[PINPOINT_PROJECT_ID]
+      - PINPOINT_PROJECT_NAME=[PINPOINT_PROJECT_NAME]
+      - AWS_ACCESS_KEY=[AWS_ACCESS_KEY]
+      - AWS_SECRET_KEY=[AWS_SECRET_KEY]
+      - AWS_REGION=[AWS_REGION]
+      - PINPOINT_SENDER_EMAIL_ID=[PINPOINT_SENDER_EMAIL_ID]
+      - SQS_QUEUE_NAME=[SQS_QUEUE_NAME]
+      - SQS_QUEUE_URL=[SQS_QUEUE_URL]
+      - TWILIO_VERIFICATION_API_KEY=NA
+      - TWILIO_SENDER_API_ACCOUNT_SID=[TWILIO_SENDER_API_ACCOUNT_SID]
+      - TWILIO_SENDER_API_AUTH_TOKEN=[TWILIO_SENDER_API_AUTH_TOKEN]
+      - TWILIO_SENDER_API_PHONE_FROM=[TWILIO_SENDER_API_PHONE_FROM]
+    networks:
+      azilen_network:

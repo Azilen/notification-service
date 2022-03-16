@@ -1,0 +1,40 @@
+version: '2'
+networks:
+  azilen_network:
+    driver: bridge
+services:
+  azilen-notification-postgresql:
+    extends:
+      file: azilen-notification-postgresql.yml
+      service: azilen-notification-postgresql
+    networks:
+      azilen_network:
+
+  azilen-notification-app-schema:
+    extends:
+      file: azilen-notification-postgresql.yml
+      service: azilen-notification-app-schema
+    networks:
+      azilen_network:
+    depends_on:
+      - azilen-notification-postgresql
+
+  pgadmin:
+    extends:
+      file: pgadmin.yml
+      service: pgadmin
+    networks:
+      azilen_network:
+    depends_on:
+      - azilen-notification-postgresql
+
+  azilen-notification-api-service:
+    extends:
+      file: app.yml
+      service: azilen-notification-api-service
+    networks:
+      azilen_network:
+    depends_on:
+      - azilen-notification-postgresql
+    environment:
+      - JHIPSTER_SLEEP=30
