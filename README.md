@@ -81,6 +81,11 @@ cd Service
 ```
 ./mvnw package -Pprod verify -DskipTests jib:dockerBuild
 ```
+In case you face `docker load` permission related issue, follow the instructions given in the following link to make docker run without `sudo`:
+
+```
+(Optional) https://docs.docker.com/engine/install/linux-postinstall/
+```
 
 5. Go to Schema directory for building docker image for schema creation
 
